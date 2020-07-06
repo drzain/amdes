@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sip.amdesmobile">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".DetailArmadaActivity"></activity>
+        <activity android:name=".ReportArmadaActivity" />
+        <activity android:name=".FormShippingActivity" />
+        <activity android:name=".ShippingActivity" />
+        <activity android:name=".DetailLacakActivity" />
+        <activity android:name=".LacakActivity" />
+        <activity android:name=".SalesmanActivity" />
+        <activity android:name=".GagalKirimActivity" />
+        <activity android:name=".FormTerkirimActivity" />
+        <activity android:name=".ProgresKirimActivity" />
+        <activity android:name=".FormDriverActivity" />
+        <activity android:name=".DriverActivity" />
+        <activity android:name=".FormRoutingActivity" />
+        <activity android:name=".ProsesRouteActivity" />
+        <activity android:name=".RouteActivity" />
+        <activity android:name=".FormPdiActivity" />
+        <activity android:name=".PdiActivity" />
+        <activity android:name=".ProsesPickingActivity" />
+        <activity android:name=".DetailPickingActivity" />
+        <activity android:name=".PickingActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

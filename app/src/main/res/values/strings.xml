@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">AMDes Mobile</string>
+    <string-array name="rate">
+        <item>Pilih Rate</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="nourut">
+        <item>Pilih No Urut</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="aksesoris">
+        <item>Terpasang</item>
+        <item>Tidak</item>
+    </string-array>
+    <string-array name="mobil">
+        <item>M0001</item>
+        <item>M0002</item>
+        <item>M0003</item>
+    </string-array>
+    <string-array name="pilihan">
+        <item>Ya</item>
+        <item>Tidak</item>
+    </string-array>
+</resources>
