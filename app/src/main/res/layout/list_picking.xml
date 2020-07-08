@@ -62,17 +62,17 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.3"
                     android:layout_height="wrap_content"
-                    android:text="Nama Konsumen "
+                    android:text="No Ka ID "
                     android:textStyle="bold"/>
 
                 <TextView
                     android:paddingLeft="2dp"
-                    android:id="@+id/pickNama"
+                    android:id="@+id/pickNoKa"
                     android:layout_marginTop="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="0.7"
                     android:layout_height="wrap_content"
-                    android:text="Nama Konsumen"
+                    android:text="No Ka ID"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -87,67 +87,22 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.3"
                     android:layout_height="wrap_content"
-                    android:text="Salesman "
+                    android:text="CLR "
                     android:textStyle="bold"/>
 
                 <TextView
                     android:paddingLeft="2dp"
-                    android:id="@+id/pickSales"
+                    android:id="@+id/pickCLR"
                     android:layout_marginTop="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="0.7"
                     android:layout_height="wrap_content"
-                    android:text="Nama Sales"
+                    android:text="Data CLR"
                     android:textStyle="bold"/>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Rate :"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:paddingLeft="2dp"
-                    android:id="@+id/pickRate"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Rate"/>
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Tanggal :"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/pickTanggal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.3"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Tanggal"/>
-
-            </LinearLayout>
 
 
 

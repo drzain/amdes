@@ -2,13 +2,13 @@ package com.sip.amdesmobile;
 
 public class DataPicking {
 
-    private String tanggal,rate,namakonsumen,nomorid,salesman,wilayah,area;
+    private String tanggal,rate,namakonsumen,nomorid,salesman,wilayah,area,clr,nokaid;
 
     public DataPicking(){
 
     }
 
-    public DataPicking(String nomorid, String namakonsumen, String rate, String tanggal, String salesman, String wilayah, String area){
+    public DataPicking(String nomorid, String namakonsumen, String rate, String tanggal, String salesman, String wilayah, String area, String clr, String nokaid){
         this.tanggal = tanggal;
         this.rate = rate;
         this.namakonsumen = namakonsumen;
@@ -16,6 +16,24 @@ public class DataPicking {
         this.salesman = salesman;
         this.wilayah = wilayah;
         this.area = area;
+        this.clr = clr;
+        this.nokaid = nokaid;
+    }
+
+    public String getClr() {
+        return clr;
+    }
+
+    public void setClr(String clr) {
+        this.clr = clr;
+    }
+
+    public String getNokaid() {
+        return nokaid;
+    }
+
+    public void setNokaid(String nokaid) {
+        this.nokaid = nokaid;
     }
 
     public String getTanggal() {
