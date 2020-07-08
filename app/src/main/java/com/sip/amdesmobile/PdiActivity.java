@@ -50,9 +50,9 @@ public class PdiActivity extends AppCompatActivity {
 
     void addData(){
         pdiArrayList = new ArrayList<DataPdi>();
-        pdiArrayList.add(new DataPdi("72674526", "Ajeng","2", "03/07/2020","Tri Sutisna","Setu","Bekasi"));
-        pdiArrayList.add(new DataPdi("63764827", "Ade Irwana","2", "03/07/2020","Tri Sutisna","Sentul","Bogor"));
-        pdiArrayList.add(new DataPdi("83748362", "Sunan Ali", "2", "03/07/2020","Tri Sutisna","Cililitan","Jakarta"));
+        pdiArrayList.add(new DataPdi("72674526", "Ajeng","2", "03/07/2020","Tri Sutisna","Setu","Bekasi","8297423","Acc"));
+        pdiArrayList.add(new DataPdi("63764827", "Ade Irwana","2", "03/07/2020","Tri Sutisna","Sentul","Bogor","6382742","Acc"));
+        pdiArrayList.add(new DataPdi("83748362", "Sunan Ali", "2", "03/07/2020","Tri Sutisna","Cililitan","Jakarta","57264244","Acc"));
     }
 
     public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
@@ -60,16 +60,14 @@ public class PdiActivity extends AppCompatActivity {
         private List<DataPdi> taskList;
 
         public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView numberid, nama, rate, tanggal,salesman, wilayah, area;
+            public TextView numberid, nokaid, acc;
             public CardView cardList;
 
             public MyViewHolder(View view) {
                 super(view);
                 numberid = (TextView) view.findViewById(R.id.pdiNomorId);
-                nama = (TextView) view.findViewById(R.id.pdiNama);
-                rate = (TextView) view.findViewById(R.id.pdiRate);
-                tanggal = (TextView) view.findViewById(R.id.pdiTanggal);
-                salesman = (TextView) view.findViewById(R.id.pdiSales);
+                nokaid = (TextView) view.findViewById(R.id.pdiNoKaid);
+                acc = (TextView) view.findViewById(R.id.pdiACC);
                 cardList = (CardView) view.findViewById(R.id.cardpdi);
             }
         }
@@ -90,10 +88,8 @@ public class PdiActivity extends AppCompatActivity {
         public void onBindViewHolder(ListAdapter.MyViewHolder holder, final int position) {
             final DataPdi task = taskList.get(position);
             holder.numberid.setText(task.getNomorid());
-            holder.nama.setText(task.getNamakonsumen());
-            holder.rate.setText(task.getRate());
-            holder.tanggal.setText(task.getTanggal());
-            holder.salesman.setText(task.getSalesman());
+            holder.nokaid.setText(task.getNokaid());
+            holder.acc.setText(task.getAcc());
 
             holder.cardList.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -112,6 +108,9 @@ public class PdiActivity extends AppCompatActivity {
                             .setNegativeButton(android.R.string.no, null).show();*/
 
                     Intent intent = new Intent( PdiActivity.this, FormPdiActivity.class);
+                    intent.putExtra("numberid",task.getNomorid());
+                    intent.putExtra("nokaid",task.getNokaid());
+                    intent.putExtra("acc",task.getAcc());
                     startActivity(intent);
                 }
             });

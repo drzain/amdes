@@ -79,12 +79,12 @@ public class ProsesPickingActivity extends AppCompatActivity {
 
     public void cekdata(){
         // Tag used to cancel the request
-        String tag_string_req = "req_login";
+        String tag_string_req = "req_data";
 
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                Constants.URL_LOGIN, new Response.Listener<String>() {
+                Constants.URL_DATA_PICKING, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -129,9 +129,9 @@ public class ProsesPickingActivity extends AppCompatActivity {
                         MainActivity.class);
                 startActivity(intent);
                 finish();*/
-                Log.e(TAG, "Login Error: " + error.getMessage());
+                Log.e(TAG, "Picking Error: " + error.getMessage());
                 Toast.makeText(getApplicationContext(),
-                        "Login Failed", Toast.LENGTH_LONG).show();
+                        "Picking Data Failed", Toast.LENGTH_LONG).show();
                 hideDialog();
             }
         }) {
@@ -175,6 +175,7 @@ public class ProsesPickingActivity extends AppCompatActivity {
                 numberid = (TextView) view.findViewById(R.id.pickNomorId);
                 noka = (TextView) view.findViewById(R.id.pickNoKa);
                 clr = (TextView) view.findViewById(R.id.pickCLR);
+                cardList = (CardView) view.findViewById(R.id.cardpicking);
             }
         }
 
@@ -214,6 +215,9 @@ public class ProsesPickingActivity extends AppCompatActivity {
                             .setNegativeButton(android.R.string.no, null).show();*/
 
                     Intent intent = new Intent( ProsesPickingActivity.this, DetailPickingActivity.class);
+                    intent.putExtra("numberid",task.getNomorid());
+                    intent.putExtra("nokaid",task.getNokaid());
+                    intent.putExtra("clr",task.getClr());
                     startActivity(intent);
                 }
             });
