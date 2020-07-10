@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,11 +34,12 @@ import java.util.Map;
 public class ProsesPickingActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<DataPicking> pickingArrayList;
+    private List<DataPicking> dataList = new ArrayList<>();
     private ListAdapter adapter;
-    String tglpicking, numberidpicking, ratepicking;
+    String tglpicking, numberidpicking, ratepicking,rowdata;
     AlertDialog dialog;
     private static final String TAG = MainActivity.class.getSimpleName();
+    TextView txtrowpick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,26 +53,40 @@ public class ProsesPickingActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Picking");
         toolbar.setTitleTextColor(0xFFFFFFFF);
 
+        txtrowpick = findViewById(R.id.txtrowpick);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false); // if you want user to wait for some process to finish,
+        builder.setView(R.layout.layout_loading_dialog);
+        dialog = builder.create();
+
         Intent intent = getIntent();
         tglpicking = intent.getStringExtra("tglpicking");
         numberidpicking = intent.getStringExtra("numberidpicking");
         ratepicking = intent.getStringExtra("rate");
 
-        addData();
+        //addData();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerPicking);
-        adapter = new ListAdapter(pickingArrayList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ProsesPickingActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
+        adapter = new ListAdapter(dataList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+        if (numberidpicking != null && !numberidpicking.isEmpty() && !numberidpicking.equals("null")){
+            //cekdata(tglpicking,numberidpicking,ratepicking);
+        }else{
+            Log.e("string proses",tglpicking+" "+ratepicking);
+            cekdata2(tglpicking,ratepicking);
+        }
     }
 
-    void addData(){
+    /*void addData(){
         pickingArrayList = new ArrayList<DataPicking>();
-        pickingArrayList.add(new DataPicking("03/07/2020", "Ajeng","2", "72674526","Tri Sutisna","Setu","Bekasi","CLR","72627627"));
-        pickingArrayList.add(new DataPicking("03/07/2020", "Ade Irwana","2", "63764827","Tri Sutisna","Sentul","Bogor","CLR","2352352"));
-        pickingArrayList.add(new DataPicking("03/07/2020", "Sunan Ali", "2", "83748362","Tri Sutisna","Cililitan","Jakarta","CLR","32526343"));
-    }
+        pickingArrayList.add(new DataPicking("72674526", "Ajeng","2", "07/07/2020","Tri Sutisna","Setu","Bekasi","CLR","72627627"));
+        pickingArrayList.add(new DataPicking("63764827", "Ade Irwana","2", "07/07/2020","Tri Sutisna","Sentul","Bogor","CLR","2352352"));
+        pickingArrayList.add(new DataPicking("83748362", "Sunan Ali", "2", "07/07/2020","Tri Sutisna","Cililitan","Jakarta","CLR","32526343"));
+    }*/
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -77,7 +94,7 @@ public class ProsesPickingActivity extends AppCompatActivity {
         return true;
     }
 
-    public void cekdata(){
+    public void cekdata(final String tglpicking,final String numberidpicking, final String ratepicking){
         // Tag used to cancel the request
         String tag_string_req = "req_data";
 
@@ -88,32 +105,37 @@ public class ProsesPickingActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "Login Response: " + response.toString());
+                Log.e(TAG, "Picking Response: " + response.toString());
                 hideDialog();
 
                 try {
                     JSONObject jObj = new JSONObject(response);
                     Log.e(TAG, "obj: " + jObj.toString());
-                    String error = jObj.getString("status");
-                    Log.e(TAG, "obj: " + error);
-                    // Check for error node in json
-                    if (error.equals("1")) {
-                        // user successfully logged in
-                        // Create login session
+                    rowdata = jObj.getString("rowdata");
+                    JSONArray queArray = jObj.getJSONArray("data");
+                    //now looping through all the elements of the json array
+                    ArrayList data = new ArrayList<DataPicking>();
+                    for (int i = 0; i < queArray.length(); i++) {
+                        JSONObject queObject = queArray.getJSONObject(i);
+                        data.add(
+                                new DataPicking(
+                                        queObject.getString("nomor_id"),
+                                        queObject.getString("nama_konsumen"),
+                                        queObject.getString("rate"),
+                                        queObject.getString("tanggal"),
+                                        queObject.getString("salesman"),
+                                        queObject.getString("wilayah"),
+                                        queObject.getString("area"),
+                                        queObject.getString("clr"),
+                                        queObject.getString("no_ka_id")
+                                )
+                        );
+                        //getting the json object of the particular index inside the array
 
-
-                        // Launch main activity
-
-                        //Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                        //startActivity(intent);
-                        //finish();
-
-                    } else {
-                        // Error in login. Get the error message
-                        String errorMsg = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
                     }
+                    adapter = new ListAdapter(data);
+                    recyclerView.setAdapter(adapter);
+                    txtrowpick.setText("Total Picking : "+ rowdata);
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
@@ -140,8 +162,90 @@ public class ProsesPickingActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                //params.put("username", username);
-                //params.put("password", password);
+                params.put("tanggal", tglpicking);
+                params.put("numberid", numberidpicking);
+                params.put("rate", ratepicking);
+
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
+    public void cekdata2(final String tglpicking, final String ratepicking){
+        // Tag used to cancel the request
+        String tag_string_req = "req_data";
+
+        showDialog();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                Constants.URL_DATA_PICKING, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "Picking Response: " + response.toString());
+                hideDialog();
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    Log.e(TAG, "obj: " + jObj.toString());
+                    rowdata = jObj.getString("rowdata");
+                    txtrowpick.setText("Total Picking : "+ rowdata);
+                    JSONArray queArray = jObj.getJSONArray("data");
+                    //now looping through all the elements of the json array
+                    ArrayList data = new ArrayList<DataPicking>();
+                    for (int i = 0; i < queArray.length(); i++) {
+                        JSONObject queObject = queArray.getJSONObject(i);
+                        data.add(
+                                new DataPicking(
+                                        queObject.getString("nomor_id"),
+                                        queObject.getString("nama_konsumen"),
+                                        queObject.getString("rate"),
+                                        queObject.getString("tanggal"),
+                                        queObject.getString("salesman"),
+                                        queObject.getString("wilayah"),
+                                        queObject.getString("area"),
+                                        queObject.getString("clr"),
+                                        queObject.getString("no_ka_id")
+                                )
+                        );
+                        //getting the json object of the particular index inside the array
+
+                    }
+                    adapter = new ListAdapter(data);
+                    recyclerView.setAdapter(adapter);
+
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                /*Intent intent = new Intent(LoginActivity.this,
+                        MainActivity.class);
+                startActivity(intent);
+                finish();*/
+                Log.e(TAG, "Picking Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        "Picking Data Failed", Toast.LENGTH_LONG).show();
+                hideDialog();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tanggal", tglpicking);
+                params.put("rate", ratepicking);
 
                 return params;
             }

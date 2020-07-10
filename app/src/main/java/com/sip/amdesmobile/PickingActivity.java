@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,10 +31,12 @@ public class PickingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_picking);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarpicking);
+        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbarpicking_title);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Picking");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mTitle.setText("Picking");
         toolbar.setTitleTextColor(0xFFFFFFFF);
 
         btnSearch = findViewById(R.id.btnSearchPick);

@@ -11,10 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbarpicking"
-        android:title="Picking"
         android:background="#2a5ca6"
-        android:titleTextColor="#FFFFFF"
-        android:textAlignment="center" />
+        android:textAlignment="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Title"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:id="@+id/toolbarpicking_title" />
+
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:layout_width="match_parent"
