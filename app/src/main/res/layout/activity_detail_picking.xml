@@ -27,6 +27,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/txtdetrowPick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -56,7 +57,7 @@
             android:text="Tanggal Kirim"/>
 
         <TextView
-            android:id="@+id/pdiformtgl"
+            android:id="@+id/detpicktgl"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -92,6 +93,7 @@
             android:text="Rate"/>
 
         <TextView
+            android:id="@+id/detpickrate"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -127,6 +129,7 @@
             android:text="Nama Konsumen"/>
 
         <TextView
+            android:id="@+id/detpicknama"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -162,6 +165,7 @@
             android:text="Salesman"/>
 
         <TextView
+            android:id="@+id/detpicksales"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -197,6 +201,7 @@
             android:text="Number ID"/>
 
         <TextView
+            android:id="@+id/detpicknumberid"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -232,6 +237,7 @@
             android:text="No Ka ID"/>
 
         <TextView
+            android:id="@+id/detpicknokaid"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -267,6 +273,7 @@
             android:text="CLR"/>
 
         <TextView
+            android:id="@+id/detpickclr"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -302,6 +309,7 @@
             android:text="Floc"/>
 
         <TextView
+            android:id="@+id/detpickfloc"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -337,6 +345,7 @@
             android:text="ACC"/>
 
         <TextView
+            android:id="@+id/detpickacc"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -372,6 +381,7 @@
             android:text="Catatan"/>
 
         <TextView
+            android:id="@+id/detpickcatatan"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -407,6 +417,7 @@
             android:text="Wilayah"/>
 
         <TextView
+            android:id="@+id/detpickwilayah"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"

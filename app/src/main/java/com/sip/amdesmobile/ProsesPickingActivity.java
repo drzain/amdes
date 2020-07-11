@@ -38,7 +38,7 @@ public class ProsesPickingActivity extends AppCompatActivity {
     private ListAdapter adapter;
     String tglpicking, numberidpicking, ratepicking,rowdata;
     AlertDialog dialog;
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = ProsesPickingActivity.class.getSimpleName();
     TextView txtrowpick;
 
     @Override
@@ -317,11 +317,16 @@ public class ProsesPickingActivity extends AppCompatActivity {
                                     //Log.e("lempar kirim ","coba error engga");
                                 }})
                             .setNegativeButton(android.R.string.no, null).show();*/
-
+                    Log.e("posisi ",String.valueOf(position));
                     Intent intent = new Intent( ProsesPickingActivity.this, DetailPickingActivity.class);
                     intent.putExtra("numberid",task.getNomorid());
                     intent.putExtra("nokaid",task.getNokaid());
                     intent.putExtra("clr",task.getClr());
+                    intent.putExtra("datarow",rowdata);
+                    intent.putExtra("selected",String.valueOf(position+1));
+                    intent.putExtra("tglpicking",tglpicking);
+                    intent.putExtra("numberidpicking",numberidpicking);
+                    intent.putExtra("rate",ratepicking);
                     startActivity(intent);
                 }
             });
