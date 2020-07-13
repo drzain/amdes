@@ -2,6 +2,7 @@ package com.sip.amdesmobile;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -22,8 +23,11 @@ public class PickingActivity extends AppCompatActivity {
     Button btnSearch;
     EditText tglpicking, numberidpicking;
     Spinner ratepicking;
+    private SessionManager session;
     final Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener tgl;
+    FloatingActionButton btnKeluar;
+    String namauser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,10 @@ public class PickingActivity extends AppCompatActivity {
         tglpicking = findViewById(R.id.tglpicking);
         numberidpicking = findViewById(R.id.numberidpicking);
         ratepicking = findViewById(R.id.ratepicking);
+        btnKeluar = findViewById(R.id.btn_keluar_picking);
+
+        session = new SessionManager(getApplicationContext());
+        namauser = session.isNama();
 
         tgl = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -84,6 +92,16 @@ public class PickingActivity extends AppCompatActivity {
                     Log.e("exception pick ", e.getMessage());
                 }
 
+            }
+        });
+
+        btnKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.setLogin(false);
+                Intent intent = new Intent( PickingActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

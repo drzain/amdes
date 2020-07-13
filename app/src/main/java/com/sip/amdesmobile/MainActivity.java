@@ -1,5 +1,7 @@
 package com.sip.amdesmobile;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,11 +16,17 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     private SessionManager session;
     AlertDialog dialog;
     private static final String TAG = MainActivity.class.getSimpleName();
+    public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_VIDEO = 2;
+    public static final String GALLERY_DIRECTORY_NAME = "Hello Camera";
+    public static final String IMAGE_EXTENSION = "jpg";
+    public static final String VIDEO_EXTENSION = "mp4";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +61,15 @@ public class MainActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.editTextUsername);
         edtPassword = findViewById(R.id.editTextPassword);
         btnLogin = findViewById(R.id.buttonSignin);
+        session = new SessionManager(getApplicationContext());
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(edtUsername.getText().toString().equals("picking")){
+                username = edtUsername.getText().toString();
+                password = edtPassword.getText().toString();
+                checkLogin(username,password);
+                /*if(edtUsername.getText().toString().equals("picking")){
                     Intent intent = new Intent( MainActivity.this, PickingActivity.class);
                     startActivity(intent);
                 }else if(edtUsername.getText().toString().equals("pdi")){
@@ -67,13 +84,59 @@ public class MainActivity extends AppCompatActivity {
                 }else if(edtUsername.getText().toString().equals("sales")){
                     Intent intent = new Intent( MainActivity.this, SalesmanActivity.class);
                     startActivity(intent);
-                }
+                }*/
 
             }
         });
 
+        cekpermission();
+
+    }
+
+    public void cekpermission(){
+
+        Dexter.withActivity(this)
+                .withPermissions(
+                        Manifest.permission.ACCESS_COARSE_LOCATION,
+                        Manifest.permission.INTERNET,
+                        Manifest.permission.ACCESS_NETWORK_STATE,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                ).withListener(new MultiplePermissionsListener() {
+            @Override public void onPermissionsChecked(MultiplePermissionsReport report) {
+                if (report.areAllPermissionsGranted()) {
 
 
+                } else if (report.isAnyPermissionPermanentlyDenied()) {
+                    showPermissionsAlert();
+                }
+            }
+            @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+        }).check();
+
+    }
+
+    /**
+     * Alert dialog to navigate to app settings
+     * to enable necessary permissions
+     */
+    private void showPermissionsAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissions required!")
+                .setMessage("Needs few permissions to work properly. Grant them in settings.")
+                .setPositiveButton("GOTO SETTINGS", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        CameraUtils.openSettings(MainActivity.this);
+                    }
+                })
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
     }
 
     private void checkLogin(final String username, final String password) {
@@ -107,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                         String phone = jObj.getString("phone");
                         //String token = jObj.getString("token");
                         String user = jObj.getString("username");
+                        String role = jObj.getString("role");
                         session.setIdUser(userid);
                         session.setNama(user);
                         session.setFoto(foto);
@@ -114,7 +178,15 @@ public class MainActivity extends AppCompatActivity {
                         session.setPhone(phone);
                         //session.setToken(token);
 
-
+                        if(role.equals("8")){
+                            Intent intent = new Intent(MainActivity.this, PickingActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }else{
+                            Toast.makeText(getApplicationContext(),
+                                    "Akses user belum dibuka", Toast.LENGTH_LONG).show();
+                            session.editor.clear().commit();
+                        }
                         // Launch main activity
 
                         //Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
