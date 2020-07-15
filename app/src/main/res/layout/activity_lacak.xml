@@ -171,7 +171,7 @@
             android:text="PENJADWALAN"/>
 
         <Button
-            android:id="@+id/lacak"
+            android:id="@+id/btn_salesman_lacak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
