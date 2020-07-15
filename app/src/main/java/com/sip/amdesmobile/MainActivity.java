@@ -182,7 +182,20 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, PickingActivity.class);
                             startActivity(intent);
                             finish();
-                        }else{
+                        }
+                        else if(role.equals("11")){
+                            Intent intent = new Intent(MainActivity.this, ShippingActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else if(role.equals("12")){
+                            Intent intent = new Intent(MainActivity.this, SalesmanActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
+                        else{
                             Toast.makeText(getApplicationContext(),
                                     "Akses user belum dibuka", Toast.LENGTH_LONG).show();
                             session.editor.clear().commit();
