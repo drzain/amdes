@@ -59,7 +59,7 @@
         android:textSize="20sp"
         android:background="@drawable/button_background"
         android:text="SIGN IN" />
-
+<!--
     <TextView
         android:id="@+id/txtForgotPass"
         android:layout_width="wrap_content"
@@ -68,6 +68,7 @@
         android:layout_marginTop="10dp"
         android:text="Forgot Password?"
         android:layout_gravity="end|right"/>
+        -->
 
     <ProgressBar
         android:id="@+id/loginprogress"

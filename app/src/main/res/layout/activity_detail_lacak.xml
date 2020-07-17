@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -254,7 +255,17 @@
                 android:src="@mipmap/whatsapp"/>
 
         </LinearLayout>
+        <Button
+            android:id="@+id/btn_salesman_lacak_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_background"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="Home"/>
 
     </LinearLayout>
+
+
 
 </LinearLayout>
