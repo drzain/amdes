@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,16 +7,31 @@
     android:orientation="vertical"
     tools:context=".PdiActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbarpdi"
-        android:title="Picking"
         android:background="#2a5ca6"
-        android:titleTextColor="#FFFFFF"
-        android:textAlignment="center" />
+        android:textAlignment="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Title"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:id="@+id/toolbarpdi_title" />
+
+    </android.support.v7.widget.Toolbar>
 
     <TextView
+        android:id="@+id/usernamePdi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,6 +42,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/txtrowpdi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -44,3 +60,16 @@
         android:layout_marginRight="10dp"/>
 
 </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_keluar_pdi"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#c6c6c6"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="25dp"
+        android:src="@android:drawable/ic_lock_power_off" />
+
+</RelativeLayout>

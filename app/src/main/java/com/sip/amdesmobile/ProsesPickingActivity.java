@@ -74,7 +74,7 @@ public class ProsesPickingActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         if (numberidpicking != null && !numberidpicking.isEmpty() && !numberidpicking.equals("null")){
-            //cekdata(tglpicking,numberidpicking,ratepicking);
+            cekdata(tglpicking,numberidpicking,ratepicking);
         }else{
             Log.e("string proses",tglpicking+" "+ratepicking);
             cekdata2(tglpicking,ratepicking);
@@ -94,7 +94,7 @@ public class ProsesPickingActivity extends AppCompatActivity {
         return true;
     }
 
-    public void cekdata(final String tglpicking,final String numberidpicking, final String ratepicking){
+    private void cekdata(final String tglpicking,final String numberidpicking, final String ratepicking){
         // Tag used to cancel the request
         String tag_string_req = "req_data";
 
