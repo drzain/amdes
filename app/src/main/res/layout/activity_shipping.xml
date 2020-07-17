@@ -89,7 +89,7 @@
                 android:entries="@array/mobil"/>
 
             <Button
-                android:id="@+id/btnSearchShip"
+                android:id="@+id/btn_shipping_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
