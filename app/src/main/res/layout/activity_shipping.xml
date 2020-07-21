@@ -14,7 +14,17 @@
         android:title="Picking"
         android:background="#2a5ca6"
         android:titleTextColor="#FFFFFF"
-        android:textAlignment="center" />
+        android:textAlignment="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Title"
+            android:textSize="22sp"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:id="@+id/toolbarshipping_title" />
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:layout_width="match_parent"
@@ -70,7 +80,8 @@
 
             <EditText
                 android:id="@+id/jamshipping"
-                android:hint="Jam"
+                android:hint="Jam Kirim"
+                android:ems="10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
