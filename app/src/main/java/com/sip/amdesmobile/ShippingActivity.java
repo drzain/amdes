@@ -3,6 +3,7 @@ package com.sip.amdesmobile;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,9 @@ public class ShippingActivity extends AppCompatActivity
     final Calendar myCalendar = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener tgl;
     TimePickerDialog picker;
+    private SessionManager session;;
+    FloatingActionButton btn_keluar;
+    String namauser;
 
 
 
@@ -35,6 +39,8 @@ public class ShippingActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipping);
+        session = new SessionManager(getApplicationContext());
+        namauser = session.isNama();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarshipping);
         TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbarshipping_title);
@@ -100,6 +106,17 @@ public class ShippingActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent intent = new Intent( ShippingActivity.this, FormShippingActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btn_keluar = findViewById(R.id.btn_keluar_salesman);
+        btn_keluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                session.setLogin(false);
+                Intent intent = new Intent( ShippingActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
