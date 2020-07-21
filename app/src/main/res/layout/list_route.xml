@@ -61,17 +61,17 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.3"
                     android:layout_height="wrap_content"
-                    android:text="Nama Konsumen "
+                    android:text="Kota "
                     android:textStyle="bold"/>
 
                 <TextView
                     android:paddingLeft="2dp"
-                    android:id="@+id/routeNama"
+                    android:id="@+id/routeArea"
                     android:layout_marginTop="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="0.7"
                     android:layout_height="wrap_content"
-                    android:text="Nama Konsumen"
+                    android:text="Kota"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -86,68 +86,21 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.3"
                     android:layout_height="wrap_content"
-                    android:text="Salesman "
+                    android:text="Wilayah "
                     android:textStyle="bold"/>
 
                 <TextView
                     android:paddingLeft="2dp"
-                    android:id="@+id/routeSales"
+                    android:id="@+id/routeWilayah"
                     android:layout_marginTop="5dp"
                     android:layout_width="0dp"
                     android:layout_weight="0.7"
                     android:layout_height="wrap_content"
-                    android:text="Nama Sales"
+                    android:text="Nama Wilayah"
                     android:textStyle="bold"/>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Rate :"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:paddingLeft="2dp"
-                    android:id="@+id/routeRate"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Rate"/>
-
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.1"
-                    android:layout_height="wrap_content"
-                    android:text="Tanggal :"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/routeTanggal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="0dp"
-                    android:layout_weight="0.3"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="Tanggal"/>
-
-
-            </LinearLayout>
 
 
 

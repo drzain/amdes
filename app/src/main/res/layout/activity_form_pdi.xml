@@ -194,15 +194,120 @@
             android:ellipsize="none"
             android:maxLines="10"
             android:scrollHorizontally="false"
-            android:text="Salesman"/>
+            android:text="No Ka ID"/>
 
         <TextView
-            android:id="@+id/pdiformsales"
+            android:id="@+id/pdiformnokaid"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Tata"/>
+            android:text="7248638374"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
+            android:text="CLR"/>
+
+        <TextView
+            android:id="@+id/pdiformclr"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="7248638374"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
+            android:text="ACC"/>
+
+        <TextView
+            android:id="@+id/pdiformacc"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="7248638374"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
+            android:text="Catatan"/>
+
+        <TextView
+            android:id="@+id/pdiformcatatan"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="7248638374"/>
 
     </LinearLayout>
 
@@ -264,15 +369,15 @@
             android:ellipsize="none"
             android:maxLines="10"
             android:scrollHorizontally="false"
-            android:text="Kota"/>
+            android:text="Salesman"/>
 
         <TextView
-            android:id="@+id/pdiformarea"
+            android:id="@+id/pdiformsales"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Bekasi"/>
+            android:text="Tata"/>
 
     </LinearLayout>
 

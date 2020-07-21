@@ -39,7 +39,7 @@ public class FormPdiActivity extends AppCompatActivity {
     String fisik,mesin,km,aksesoris,numberid,bnumberid,bnokaid,bacc,datarow,posisi;
     private static final String TAG = FormPdiActivity.class.getSimpleName();
     String nomor_id,tgl,ratepdi,nama_konsumen,salesman,wilayah,area,clrdet,no_ka_id,floc,acc,catatan;
-    TextView pdiformarea,pdiformwilayah,pdiformsales,pdiformnomorid,pdiformnama,pdiformrate,pdiformtgl,pdiformrow;
+    TextView pdiformsalesman,pdiformwilayah,pdiformcatatan,pdiformacc,pdiformclr,pdiformnokaid,pdiformnomorid,pdiformnama,pdiformrate,pdiformtgl,pdiformrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +59,12 @@ public class FormPdiActivity extends AppCompatActivity {
         formMesin = findViewById(R.id.pdiformmesin);
         formKm = findViewById(R.id.pdiformkilometer);
         pdiaccesories = findViewById(R.id.pdiformaksesoris);
-        pdiformarea = findViewById(R.id.pdiformarea);
+        pdiformsalesman = findViewById(R.id.pdiformsales);
         pdiformwilayah = findViewById(R.id.pdiformwilayah);
-        pdiformsales = findViewById(R.id.pdiformsales);
+        pdiformcatatan = findViewById(R.id.pdiformcatatan);
+        pdiformacc = findViewById(R.id.pdiformacc);
+        pdiformclr = findViewById(R.id.pdiformclr);
+        pdiformnokaid = findViewById(R.id.pdiformnokaid);
         pdiformnomorid = findViewById(R.id.pdiformnomorid);
         pdiformnama = findViewById(R.id.pdiformnama);
         pdiformrate = findViewById(R.id.pdiformrate);
@@ -133,9 +136,12 @@ public class FormPdiActivity extends AppCompatActivity {
                         acc = queObject.getString("acc");
                         catatan = queObject.getString("catatan");
                     }
-                    pdiformarea.setText(area);
                     pdiformwilayah.setText(wilayah);
-                    pdiformsales.setText(salesman);
+                    pdiformsalesman.setText(salesman);
+                    pdiformnokaid.setText(no_ka_id);
+                    pdiformcatatan.setText(catatan);
+                    pdiformacc.setText(acc);
+                    pdiformclr.setText(clrdet);
                     pdiformnomorid.setText(nomor_id);
                     pdiformnama.setText(nama_konsumen);
                     pdiformrate.setText(ratepdi);

@@ -2,13 +2,13 @@ package com.sip.amdesmobile;
 
 public class DataRoute {
 
-    private String tanggal,rate,namakonsumen,nomorid,salesman,wilayah,area;
+    private String tanggal,rate,namakonsumen,nomorid,salesman,wilayah,area,nokaid,acc;
 
     public DataRoute(){
 
     }
 
-    public DataRoute(String nomorid, String namakonsumen, String rate, String tanggal, String salesman, String wilayah, String area){
+    public DataRoute(String nomorid, String namakonsumen, String rate, String tanggal, String salesman, String wilayah, String area, String nokaid, String acc){
         this.tanggal = tanggal;
         this.rate = rate;
         this.namakonsumen = namakonsumen;
@@ -16,6 +16,24 @@ public class DataRoute {
         this.salesman = salesman;
         this.wilayah = wilayah;
         this.area = area;
+        this.nokaid = nokaid;
+        this.acc = acc;
+    }
+
+    public String getNokaid() {
+        return nokaid;
+    }
+
+    public void setNokaid(String nokaid) {
+        this.nokaid = nokaid;
+    }
+
+    public String getAcc() {
+        return acc;
+    }
+
+    public void setAcc(String acc) {
+        this.acc = acc;
     }
 
     public String getTanggal() {

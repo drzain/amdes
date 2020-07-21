@@ -6,6 +6,7 @@ public class Constants {
     public static final String TRACK_URL = "http://sobatexpress.youngdev.web.id/gpsapi";
     public static final String URL_LOGIN = "http://tracking.youngdev.web.id/Newlogin";
     public static final String URL_DATA_PICKING = "http://tracking.youngdev.web.id/Cekpicking";
+    public static final String URL_DATA_ROUTE = "http://tracking.youngdev.web.id/Cekroute";
     public static final String URL_DATA_PDI = "http://tracking.youngdev.web.id/Cekpdi";
     public static final String URL_DETAIL_PICKING = "http://tracking.youngdev.web.id/Detpicking";
     public static final String URL_DETAIL_PDI = "http://tracking.youngdev.web.id/Detpdi";

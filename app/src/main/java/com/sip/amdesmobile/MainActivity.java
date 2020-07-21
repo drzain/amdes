@@ -188,6 +188,11 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }
+                        else if(role.equals("10")){
+                            Intent intent = new Intent(MainActivity.this, RouteActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
                         else if(role.equals("11")){
                             Intent intent = new Intent(MainActivity.this, ShippingActivity.class);
                             startActivity(intent);
