@@ -11,12 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbarformrouting"
-        android:title="Picking"
+        android:title="Routing"
         android:background="#2a5ca6"
         android:titleTextColor="#FFFFFF"
         android:textAlignment="center" />
 
     <TextView
+        android:id="@+id/formroutingusername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,6 +28,7 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/routeformrow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -55,7 +57,7 @@
             android:text="Tanggal"/>
 
         <TextView
-            android:id="@+id/pdiformtgl"
+            android:id="@+id/routeformtgl"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -90,7 +92,7 @@
             android:text="Rate"/>
 
         <TextView
-            android:id="@+id/pdiformrate"
+            android:id="@+id/routeformrate"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -125,7 +127,7 @@
             android:text="Nama Konsumen"/>
 
         <TextView
-            android:id="@+id/pdiformnama"
+            android:id="@+id/routeformnama"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -157,45 +159,10 @@
             android:ellipsize="none"
             android:maxLines="10"
             android:scrollHorizontally="false"
-            android:text="Nomor ID"/>
-
-        <TextView
-            android:id="@+id/pdiformnomorid"
-            android:layout_width="0dp"
-            android:layout_weight="0.6"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="84728462738"/>
-
-    </LinearLayout>
-
-    <View
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-    <LinearLayout
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:paddingBottom="4dp"
-            android:ellipsize="none"
-            android:maxLines="10"
-            android:scrollHorizontally="false"
             android:text="Salesman"/>
 
         <TextView
-            android:id="@+id/pdiformsales"
+            android:id="@+id/routeformsales"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -227,15 +194,85 @@
             android:ellipsize="none"
             android:maxLines="10"
             android:scrollHorizontally="false"
-            android:text="Wilayah"/>
+            android:text="Nomor ID"/>
 
         <TextView
-            android:id="@+id/pdiformwilayah"
+            android:id="@+id/routeformnomorid"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Jati Sampurna"/>
+            android:text="84728462738"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
+            android:text="No Ka ID"/>
+
+        <TextView
+            android:id="@+id/routeformnokaid"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="84728462738"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
+            android:text="ACC"/>
+
+        <TextView
+            android:id="@+id/routeformacc"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="84728462738"/>
 
     </LinearLayout>
 
@@ -265,7 +302,7 @@
             android:text="Kota"/>
 
         <TextView
-            android:id="@+id/pdiformarea"
+            android:id="@+id/routeformarea"
             android:layout_width="0dp"
             android:layout_weight="0.6"
             android:layout_height="wrap_content"
@@ -297,10 +334,47 @@
             android:ellipsize="none"
             android:maxLines="10"
             android:scrollHorizontally="false"
+            android:text="Wilayah"/>
+
+        <TextView
+            android:id="@+id/routeformwilayah"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Jati Sampurna"/>
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:paddingBottom="4dp"
+            android:ellipsize="none"
+            android:maxLines="10"
+            android:scrollHorizontally="false"
             android:text="Pilih Mobil"/>
 
         <Spinner
-            android:paddingTop="5dp"
+            android:paddingTop="2dp"
             android:paddingBottom="10dp"
             android:entries="@array/mobil"
             android:id="@+id/routespinmobil"
