@@ -35,10 +35,11 @@ public class ProsesRouteActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<DataRoute> dataList = new ArrayList<>();
     private ListAdapter adapter;
-    String tglroute, numberidroute, rateroute,rowdata;
+    String tglroute, numberidroute, rateroute,rowdata,namauser;
+    private SessionManager session;
     AlertDialog dialog;
     private static final String TAG = ProsesPickingActivity.class.getSimpleName();
-    TextView txtrowroute;
+    TextView txtrowroute,txtnameprosesroute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,17 @@ public class ProsesRouteActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(0xFFFFFFFF);
 
         txtrowroute = findViewById(R.id.txtrowdataprosesroute);
+        txtnameprosesroute = findViewById(R.id.txtnameprosesroute);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
         builder.setView(R.layout.layout_loading_dialog);
         dialog = builder.create();
+
+        session = new SessionManager(getApplicationContext());
+        namauser = session.isNama();
+
+        txtnameprosesroute.setText(namauser);
 
         Intent intent = getIntent();
         tglroute= intent.getStringExtra("tglroute");
@@ -317,6 +324,8 @@ public class ProsesRouteActivity extends AppCompatActivity {
                     intent.putExtra("tglpicking",tglroute);
                     intent.putExtra("numberidpicking",numberidroute);
                     intent.putExtra("rate",rateroute);
+                    intent.putExtra("tglroute",tglroute);
+                    intent.putExtra("numberidroute",numberidroute);
                     startActivity(intent);
                 }
             });

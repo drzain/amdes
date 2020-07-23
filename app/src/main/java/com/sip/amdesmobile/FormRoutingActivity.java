@@ -39,7 +39,7 @@ public class FormRoutingActivity extends AppCompatActivity {
     String namauser, mobilkirim;
     private SessionManager session;
     Spinner spinmobil;
-    String numberid,bnumberid,bnokaid,bacc,datarow,posisi;
+    String numberid,bnumberid,bnokaid,bacc,datarow,posisi,tglroute,numberidroute,rateroute;
     AlertDialog dialog;
     private static final String TAG = FormPdiActivity.class.getSimpleName();
     SpinnerAdapter adapter;
@@ -76,6 +76,9 @@ public class FormRoutingActivity extends AppCompatActivity {
         bnumberid = intent.getStringExtra("numberid");
         datarow = intent.getStringExtra("datarow");
         posisi = intent.getStringExtra("selected");
+        tglroute= intent.getStringExtra("tglroute");
+        numberidroute = intent.getStringExtra("numberidroute");
+        rateroute = intent.getStringExtra("rate");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
@@ -162,6 +165,9 @@ public class FormRoutingActivity extends AppCompatActivity {
 
                                         Intent intent = new Intent(FormRoutingActivity.this,
                                                 ReportArmadaActivity.class);
+                                        intent.putExtra("tglroute",tglroute);
+                                        intent.putExtra("numberidroute",numberidroute);
+                                        intent.putExtra("rate",rateroute);
                                         startActivity(intent);
                                         finish();
 
