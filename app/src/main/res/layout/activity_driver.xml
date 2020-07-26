@@ -90,4 +90,16 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btn_start_tracking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start tracking"
+        android:enabled="false"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        />
+
 </LinearLayout>
